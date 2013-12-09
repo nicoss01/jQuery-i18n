@@ -3,7 +3,7 @@ var i18n = {
 	__init__:	function(){
 		console.log("i18n init");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "assets/lang/"+window.navigator.language+".json", true);
+		xmlhttp.open("GET", "lang/"+window.navigator.language+".json", true);
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			console.log("i18n file loaded");
@@ -23,7 +23,7 @@ var i18n = {
 	translate : function(){
 		$("*[data-i18n]").each(function(){
 			if($(this).attr("data-translate")!="true"){
-				$(this).html(lang.get($(this).attr("data-i18n"))).attr("data-translate","true");	
+				$(this).html(i18n.get($(this).attr("data-i18n"))).attr("data-translate","true");	
 			}
 		});
 		l = /i18n\((.*?)\)/gim;
